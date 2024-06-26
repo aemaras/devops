@@ -4,7 +4,7 @@ pipeline {
         DOCKER_HUB_LOGIN = credentials('docker')
         IMAGE='holamundo'
         REGISTRY='amaras73'
-        VERSION='v2'
+        VERSION='v3'
         //SERVER='ec2-user@54.159.156.35'
     }
     stages {
