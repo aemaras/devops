@@ -59,23 +59,23 @@ pipeline {
                '''
             }
         }
-        stage('update compose') {
-            steps {
-               sh '''
-               sed -i -- "s/REGISTRY/$REGISTRY/g" docker-compose.yaml
-               sed -i -- "s/REPLACE/$IMAGE/g" docker-compose.yaml
-               sed -i -- "s/TAG/$VERSION/g" docker-compose.yaml
-               cat docker-compose.yaml
-               '''
-            }
-        }  
-        stage('deploy to aws') {
-            steps {
-                sshagent (['ssh-aws']) {
-                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yaml $SERVER:/home/ec2-user'
-                    sh 'ssh $SERVER docker-compose up -d'
-                }
-            }
-        }                
+        //stage('update compose') {
+            //steps {
+               //sh '''
+               //sed -i -- "s/REGISTRY/$REGISTRY/g" docker-compose.yaml
+               //sed -i -- "s/REPLACE/$IMAGE/g" docker-compose.yaml
+               //sed -i -- "s/TAG/$VERSION/g" docker-compose.yaml
+               //cat docker-compose.yaml
+               //'''
+            //}
+        //}  
+        //stage('deploy to aws') {
+            //steps {
+                //sshagent (['ssh-aws']) {
+                    //sh 'scp -o StrictHostKeyChecking=no docker-compose.yaml $SERVER:/home/ec2-user'
+                    //sh 'ssh $SERVER docker-compose up -d'
+                //}
+            //}
+        //}                
     }
 }
