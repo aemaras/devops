@@ -3,9 +3,9 @@ pipeline {
     environment {
         DOCKER_HUB_LOGIN = credentials('docker')
         IMAGE='holamundo'
-        REGISTRY='roxsross12'
+        REGISTRY='amaras73'
         VERSION='v2'
-        SERVER='ec2-user@54.159.156.35'
+        //SERVER='ec2-user@54.159.156.35'
     }
     stages {
         stage('install dependencies') {
